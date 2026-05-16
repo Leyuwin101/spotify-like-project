@@ -14,6 +14,8 @@
     align-items:center;
     padding:25px;
     backdrop-filter:blur(18px);
+    min-height:0;
+    overflow:hidden;
 }
 
 
@@ -365,4 +367,199 @@
 .play-icon{
     color:white !important;
     font-size:24px !important;
+}
+
+
+/**
+    - allows middle column content to scroll properly
+        inside grid layout without breaking height constraints
+*/
+
+.middle{
+    min-height:0;
+}
+
+
+/**
+    - RESPONSIVE DESIGN (MIDDLE COLUMN)
+    - adapts player layout, spacing, and sizing for all screens
+*/
+
+
+/**
+    - EXTRA LARGE SCREENS (1440px and above)
+    - more breathing space and slightly larger elements
+*/
+
+@media (min-width: 1440px) {
+
+    .middle{
+        padding:30px;
+    }
+
+    .player{
+        max-width:420px;
+        padding:28px;
+    }
+
+    .cover{
+        width:240px;
+        height:240px;
+    }
+
+    .title{
+        font-size:28px;
+    }
+
+    .controls{
+        gap:26px;
+    }
+
+    .play-btn{
+        width:74px;
+        height:74px;
+    }
+}
+
+
+/**
+    - LAPTOP SCREENS (1024px - 1439px)
+    - balanced default layout
+*/
+
+@media (max-width: 1439px) and (min-width: 1024px) {
+
+    .middle{
+        padding:25px;
+    }
+
+    .player{
+        max-width:380px;
+    }
+}
+
+
+/**
+    - TABLET LANDSCAPE (768px - 1023px)
+    - slightly reduced player sizing
+*/
+
+@media (max-width: 1023px) and (min-width: 768px) {
+
+    .middle{
+        padding:18px;
+    }
+
+    .player{
+        max-width:340px;
+        padding:20px;
+    }
+
+    .cover{
+        width:200px;
+        height:200px;
+    }
+
+    .title{
+        font-size:22px;
+    }
+
+    .controls{
+        gap:18px;
+    }
+
+    .play-btn{
+        width:60px;
+        height:60px;
+    }
+}
+
+
+/**
+    - MOBILE LARGE (425px - 767px)
+    - full width stacked layout behavior
+*/
+
+@media (max-width: 767px) {
+
+    .middle{
+        padding:14px;
+        align-items:flex-start;
+    }
+
+    .player{
+        max-width:100%;
+        padding:18px;
+    }
+
+    .cover{
+        width:180px;
+        height:180px;
+    }
+
+    .title{
+        font-size:20px;
+    }
+
+    .icons{
+        padding:12px 14px;
+    }
+}
+
+
+/**
+    - SMALL MOBILE (375px - 424px)
+    - tighter spacing
+*/
+
+@media (max-width: 424px) {
+
+    .middle{
+        padding:12px;
+    }
+
+    .cover{
+        width:160px;
+        height:160px;
+    }
+
+    .title{
+        font-size:18px;
+    }
+
+    .play-btn{
+        width:56px;
+        height:56px;
+    }
+}
+
+
+/**
+    - EXTRA SMALL DEVICES (320px - 374px)
+    - ultra compact layout
+*/
+
+@media (max-width: 374px) {
+
+    .middle{
+        padding:10px;
+    }
+
+    .cover{
+        width:150px;
+        height:150px;
+    }
+
+    .title{
+        font-size:17px;
+    }
+
+    .controls{
+        gap:14px;
+    }
+
+    .play-btn{
+        width:52px;
+        height:52px;
+    }
 }

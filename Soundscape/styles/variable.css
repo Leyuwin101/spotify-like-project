@@ -101,7 +101,8 @@ body.dark{
 body{
     height:100vh;
     overflow:hidden;
-
+    overflow-y:auto;
+        
     background:linear-gradient(
         135deg,
         var(--bg1),

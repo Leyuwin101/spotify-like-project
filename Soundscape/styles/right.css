@@ -78,6 +78,9 @@
     display:flex;
     flex-direction:column;
     gap:14px;
+    overflow-y:auto;
+    max-height:320px;
+    padding-right:4px;
 }
 
 
@@ -96,17 +99,11 @@
 .song-box{
     display:flex;
     align-items:center;
-
     gap:16px;
-
     background:var(--icon-bg);
-
     padding:14px;
-
     border-radius:18px;
-
     cursor:pointer;
-
     transition:
     transform 0.25s ease,
     background 0.25s ease,
@@ -123,11 +120,8 @@
 
 .song-box:hover{
     transform:translateY(-3px);
-
     background:rgba(255,255,255,0.15);
-
-    box-shadow:
-    0 10px 20px rgba(0,0,0,0.08);
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
 }
 
 
@@ -139,11 +133,8 @@
 */
 
 .active-song{
-    background:
-    rgba(122,66,244,0.18);
-
-    border:
-    1px solid rgba(122,66,244,0.35);
+    background:rgba(122,66,244,0.18);
+    border:1px solid rgba(122,66,244,0.35);
 }
 
 
@@ -160,20 +151,14 @@
 .song-number{
     width:38px;
     height:38px;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     border-radius:50%;
-
     background:var(--primary);
-
     color:#fff;
-
     font-size:14px;
     font-weight:600;
-
     flex-shrink:0;
 }
 
@@ -199,7 +184,6 @@
 .song-name{
     font-size:15px;
     font-weight:500;
-
     color:var(--text);
 }
 
@@ -212,21 +196,7 @@
 
 .song-time{
     font-size:13px;
-
     color:var(--text-light);
-}
-
-
-/**
-    - CUSTOM SCROLLBAR
-    - allows smooth scrolling
-        when many songs are added
-*/
-
-.song-row{
-    overflow-y:auto;
-    max-height:320px;
-    padding-right:4px;
 }
 
 
@@ -257,9 +227,16 @@
     border-radius:999px;
 }
 
+
+/**
+    - RESPONSIVE DESIGN (RIGHT SIDEBAR)
+    - adapts queue layout, spacing, and typography for all screen sizes
+*/
+
+
 /**
     - EXTRA LARGE SCREENS (1440px and above)
-    - increase spacing for wide displays
+    - more spacing and stronger visual hierarchy
 */
 
 @media (min-width: 1440px) {
@@ -289,12 +266,16 @@
     .song-time{
         font-size:14px;
     }
+
+    .song-row{
+        max-height:360px;
+    }
 }
 
 
 /**
     - LAPTOP SCREENS (1024px - 1439px)
-    - default comfortable spacing adjustments
+    - balanced spacing for default desktop view
 */
 
 @media (max-width: 1439px) and (min-width: 1024px) {
@@ -315,7 +296,7 @@
 
 /**
     - TABLET LANDSCAPE (768px - 1023px)
-    - compact layout for medium screens
+    - compact but readable layout
 */
 
 @media (max-width: 1023px) and (min-width: 768px) {
@@ -449,7 +430,7 @@
 
 /**
     - EXTRA SMALL DEVICES (320px - 374px)
-    - ultra compact layout for very small phones
+    - ultra compact layout
 */
 
 @media (max-width: 374px) {

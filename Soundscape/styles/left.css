@@ -13,8 +13,7 @@
     flex-direction:column;
     gap:18px;
     backdrop-filter:blur(18px);
-    border-right:
-    1px solid var(--border-light);
+    border-right:1px solid var(--border-light);
 }
 
 
@@ -89,8 +88,9 @@
 /** 
     - for the nav (navigation) make list-style as none 
         to remove the bullets. make the display flex for 
-        horizontal layout. add justify-content space-between
-        so navigation items spread evenly across the row.
+        horizontal layout. add flex-wrap nowrap to keep items in a single row
+        so they overflow instead of wrapping. change justify-content to flex-start
+        so items align naturally from the left instead of being stretched.
         add align-items center to vertically align items.
         add gap for space between items.
     - add overflow-x auto to enables horizontal scroll.
@@ -101,7 +101,8 @@
 .nav{
     list-style:none;
     display:flex;
-    justify-content:space-between;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
     align-items:center;
     gap:8px;
     overflow-x:auto;
@@ -137,7 +138,7 @@
 */
 
 .nav li{
-    flex:1;
+    flex:0 0 auto;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -171,8 +172,7 @@
 */
 
 .active-nav{
-    background:
-    rgba(122,66,244,0.18);
+    background:rgba(122,66,244,0.18);
     color:var(--primary);
     border-radius:18px;
     border:1px solid rgba(122,66,244,0.35);
@@ -220,8 +220,7 @@
 */
 
 .info-box:hover{
-    background:
-    rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.14);
 }
 
 
@@ -274,4 +273,233 @@
 .info-subtitle{
     font-size:13px;
     color:var(--text-light);
+}
+
+/**
+    - RESPONSIVE DESIGN (LEFT COLUMN)
+    - adapts sidebar navigation and content for all screen sizes
+*/
+
+
+/**
+    - EXTRA LARGE SCREENS (1440px and above)
+    - more spacing and wider sidebar feel
+*/
+
+@media (min-width: 1440px) {
+
+    .left{
+        gap:22px;
+    }
+
+    .search-box{
+        padding:16px 20px;
+    }
+
+    .nav li{
+        padding:14px 20px;
+        font-size:15px;
+    }
+
+    .left-content{
+        max-height:700px;
+    }
+
+    .info-box{
+        padding:16px;
+    }
+
+    .info-title{
+        font-size:16px;
+    }
+}
+
+
+/**
+    - LAPTOP SCREENS (1024px - 1439px)
+    - balanced sidebar spacing
+*/
+
+@media (max-width: 1439px) and (min-width: 1024px) {
+
+    .left{
+        gap:18px;
+    }
+
+    .left-content{
+        max-height:620px;
+    }
+}
+
+
+/**
+    - TABLET LANDSCAPE (768px - 1023px)
+    - compact sidebar layout
+*/
+
+@media (max-width: 1023px) and (min-width: 768px) {
+
+    .left{
+        gap:16px;
+        border-right:1px solid var(--border-light);
+    }
+
+    .search-box{
+        padding:12px 14px;
+        border-radius:18px;
+    }
+
+    .search-box .material-icons{
+        font-size:20px;
+    }
+
+    .nav li{
+        padding:10px 12px;
+        font-size:13px;
+        border-radius:14px;
+    }
+
+    .left-content{
+        max-height:520px;
+        gap:12px;
+    }
+
+    .info-box{
+        padding:12px;
+        gap:12px;
+    }
+
+    .info-icon{
+        width:38px;
+        height:38px;
+    }
+
+    .info-title{
+        font-size:14px;
+    }
+
+    .info-subtitle{
+        font-size:12px;
+    }
+}
+
+
+/**
+    - MOBILE LARGE (425px - 767px)
+    - sidebar becomes compact scrollable panel
+*/
+
+@media (max-width: 767px) {
+
+    .left{
+        gap:14px;
+        border-right:none;
+    }
+
+    .search-box{
+        padding:12px;
+        border-radius:16px;
+    }
+
+    .search-box input{
+        font-size:13px;
+    }
+
+    .nav{
+        gap:6px;
+    }
+
+    .nav li{
+        padding:10px;
+        font-size:12px;
+        border-radius:12px;
+    }
+
+    .left-content{
+        max-height:420px;
+        gap:10px;
+    }
+
+    .info-box{
+        padding:10px;
+        gap:10px;
+    }
+
+    .info-icon{
+        width:34px;
+        height:34px;
+    }
+}
+
+
+/**
+    - SMALL MOBILE (375px - 424px)
+    - tighter spacing for small phones
+*/
+
+@media (max-width: 424px) {
+
+    .search-box{
+        padding:10px 12px;
+    }
+
+    .nav li{
+        padding:8px;
+        font-size:11.5px;
+    }
+
+    .info-box{
+        padding:9px;
+    }
+
+    .info-title{
+        font-size:13px;
+    }
+
+    .info-subtitle{
+        font-size:11px;
+    }
+}
+
+
+/**
+    - EXTRA SMALL DEVICES (320px - 374px)
+    - ultra compact layout
+*/
+
+@media (max-width: 374px) {
+
+    .left{
+        gap:12px;
+    }
+
+    .search-box{
+        padding:9px 10px;
+    }
+
+    .search-box .material-icons{
+        font-size:18px;
+    }
+
+    .nav li{
+        padding:7px;
+        font-size:11px;
+    }
+
+    .left-content{
+        max-height:360px;
+    }
+
+    .info-icon{
+        width:30px;
+        height:30px;
+    }
+
+    .info-title{
+        font-size:12.5px;
+    }
+
+    .info-subtitle{
+        font-size:10.5px;
+    }
 }

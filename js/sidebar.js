@@ -15,7 +15,7 @@
  */
 
 import { songs } from "./song.js";
-import { loadSong, playSong } from "./player.js";
+import { loadSong, playSong } from "../player.js";
 
 
 /* SIDEBAR ELEMENTS

@@ -13,7 +13,7 @@
  */
 
 import { songs } from "./song.js";
-import { renderSidebar } from "./sidebar.js";
+import { renderSidebar } from "./js/sidebar.js";
 
 
 /* SONG INDEX

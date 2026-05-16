@@ -8,16 +8,15 @@
 */
 
 .middle{
-    grid-area:middle;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:25px;
-    backdrop-filter:blur(18px);
-    min-height:0;
-    overflow:hidden;
+    grid-area: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    backdrop-filter: blur(18px);
+    min-height: 0;
+    overflow: hidden;
 }
-
 
 /**
     - for the player container set width to 100%
@@ -207,30 +206,37 @@
     transform:translateY(-2px) scale(1.08);
 }
 
-
 /**
-    - for plus button set fixed width and height.
-        center content using flex. add border-radius for shape.
-        apply gradient background and shadow for depth.
-        set text color to white
+    - for heart (favorite) icon active state
+        changes color to variable --primary and slightly enlarges
+        when song is marked as favorite
 */
 
-.plus-btn{
-    width:44px;
-    height:44px;
-    border-radius:14px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(
-        145deg,
-        var(--primary-light),
-        var(--primary)
-    );
-    box-shadow:var(--primary-shadow);
-    color:white !important;
+.fa-heart {
+    transition: 0.25s ease;
+    cursor: pointer;
 }
 
+/**
+    - hover effect for heart icon
+        slightly scales icon to indicate interactivity
+*/
+
+.fa-heart:hover {
+    transform: scale(1.15);
+}
+
+/**
+    - active favorite state
+        applies when song is marked as favorite
+        gives the color of variable --primary
+*/
+
+.active-heart {
+    color: var(--primary) !important;
+    transform: scale(1.2);
+    filter: var(--primary-shadow);
+}
 
 /**
     - for progress container add margin-top for spacing
@@ -367,16 +373,6 @@
 .play-icon{
     color:white !important;
     font-size:24px !important;
-}
-
-
-/**
-    - allows middle column content to scroll properly
-        inside grid layout without breaking height constraints
-*/
-
-.middle{
-    min-height:0;
 }
 
 

@@ -50,6 +50,35 @@ const volumeBtn = document.querySelector(".volume");
 const volumeSlider = document.querySelector(".volume-slider");
 const volumeContainer = document.querySelector(".volume-container");
 
+const favorite = document.querySelector(".heart");
+
+/**
+ * FAVORITE BUTTON
+ *
+ * Handles liking/unliking the current song
+ * - toggles song.favorite state
+ * - updates heart icon UI
+ * - refreshes sidebar favorites list
+ */
+favorite.addEventListener("click", () => {
+
+    const song = songs[currentSong];
+
+    // toggle favorite state
+    song.favorite = !song.favorite;
+
+    // update UI icon state
+    if (song.favorite) {
+        favorite.classList.remove("fa-regular");
+        favorite.classList.add("fa-solid", "active-heart");
+    } else {
+        favorite.classList.remove("fa-solid", "active-heart");
+        favorite.classList.add("fa-regular");
+    }
+
+    // refresh sidebar so Favorites updates
+    renderSidebar();
+});
 
 /**
  * FORMAT TIME
@@ -74,13 +103,24 @@ function formatTime(seconds){
 
 /**
  * LOAD SONG
- * 
- * Updates all UI elements with song data
- * and sets audio source
- * 
- * Also refreshes sidebar to sync UI state
+ *
+ * Updates player UI with selected song data:
+ * - cover image
+ * - title, artist, album
+ * - audio source
+ * - syncs favorite heart state
+ * - refreshes sidebar UI
  */
 export function loadSong(song){
+
+    // sync favorite icon state with song data
+    if (song.favorite) {
+        favorite.classList.remove("fa-regular");
+        favorite.classList.add("fa-solid", "active-heart");
+    } else {
+        favorite.classList.remove("fa-solid", "active-heart");
+        favorite.classList.add("fa-regular");
+    }
 
     cover.src = song.cover;
     title.textContent = song.title;

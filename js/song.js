@@ -17,28 +17,32 @@ export const songs = [
         artist: "The 1975",
         album: "Being Funny in a Foreign Language",
         src: "src/music/aboutyou.mp3",
-        cover: "src/image/Aboutyou.jpg"
+        cover: "src/image/Aboutyou.jpg",
+        favorite: false
     },
         {
         title: "About You",
         artist: "The 1975",
         album: "Being Funny in a Foreign Language",
         src: "src/music/aboutyou.mp3",
-        cover: "src/image/Aboutyou.jpg"
+        cover: "src/image/Aboutyou.jpg",
+        favorite: false
     },
     {
         title: "About You",
         artist: "The 1975",
         album: "Being Funny in a Foreign Language",
         src: "src/music/aboutyou.mp3",
-        cover: "src/image/Aboutyou.jpg"
+        cover: "src/image/Aboutyou.jpg",
+        favorite: false
     },
         {
         title: "About You",
         artist: "The 1975",
         album: "Being Funny in a Foreign Language",
         src: "src/music/aboutyou.mp3",
-        cover: "src/image/Aboutyou.jpg"
+        cover: "src/image/Aboutyou.jpg",
+        favorite: false
     },
 
     {
@@ -46,7 +50,8 @@ export const songs = [
         artist: "Mr.Kitty",
         album: "Time",
         src: "src/music/another.mp3",
-        cover: "src/image/afterdark.jpg"
+        cover: "src/image/afterdark.jpg",
+        favorite: false
     }
 
 ];

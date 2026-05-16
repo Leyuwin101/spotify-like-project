@@ -44,7 +44,7 @@ const searchInput = document.querySelector(".search-input");
  * 
  * It builds a clickable element dynamically
  */
-function createInfoBox(icon, title, subtitle){
+function createInfoBox(icon, title, subtitle, cover){
 
     const box = document.createElement("div");
 
@@ -53,7 +53,11 @@ function createInfoBox(icon, title, subtitle){
     box.innerHTML = `
 
         <div class="info-icon">
-            <i class="${icon}"></i>
+            ${
+                cover
+                ? `<img src="${cover}" alt="cover" class="info-cover">`
+                : `<i class="${icon}"></i>`
+            }
         </div>
 
         <div class="info-details">
@@ -92,11 +96,11 @@ function renderSongs(data = songs){
 
     data.forEach((song) => {
 
-        const box =
-        createInfoBox(
+        const box = createInfoBox(
             "fa-solid fa-music",
             song.title,
-            song.artist
+            song.artist,
+            song.cover
         );
 
         box.addEventListener("click", () => {
@@ -160,10 +164,13 @@ function renderAlbums(){
 
     albums.forEach((album) => {
 
+        const firstSong = songs.find(song => song.album === album);
+
         const box = createInfoBox(
             "fa-solid fa-compact-disc",
             album,
-            "Album"
+            "Album",
+            firstSong?.cover
         );
 
         leftContent.appendChild(box);
@@ -187,10 +194,13 @@ function renderArtists(){
 
     artists.forEach((artist) => {
 
+        const firstSong = songs.find(song => song.artist === artist);
+
         const box = createInfoBox(
             "fa-solid fa-user",
             artist,
-            "Artist"
+            "Artist",
+            firstSong?.cover
         );
 
         leftContent.appendChild(box);
@@ -198,6 +208,7 @@ function renderArtists(){
     });
 
 }
+
 
 /**
  * RENDER FAVORITES
@@ -216,7 +227,8 @@ function renderFavorites(){
         const box = createInfoBox(
             "fa-solid fa-heart",
             song.title,
-            song.artist
+            song.artist,
+            song.cover
         );
 
         box.addEventListener("click", () => {
@@ -229,6 +241,7 @@ function renderFavorites(){
     });
 
 }
+
 
 /**
  * RENDER RECENT
@@ -245,7 +258,8 @@ function renderRecent(){
     const box = createInfoBox(
         "fa-solid fa-clock",
         song.title,
-        song.artist
+        song.artist,
+        song.cover
     );
 
     box.addEventListener("click", () => {
@@ -256,6 +270,7 @@ function renderRecent(){
     leftContent.appendChild(box);
 
 }
+
 
 /**
  * NAVIGATION
@@ -301,33 +316,15 @@ navItems.forEach((item) => {
          * based on selected category
          */
         if (category === "songs") {
-
             renderSongs();
-
-        }
-
-        else if (category === "albums") {
-
+        } else if (category === "albums") {
             renderAlbums();
-
-        }
-
-        else if (category === "artists") {
-
+        } else if (category === "artists") {
             renderArtists();
-
-        }
-
-        else if (category === "favorites") {
-
+        } else if (category === "favorites") {
             renderFavorites();
-
-        }
-
-        else if (category === "recent") {
-
+        } else if (category === "recent") {
             renderRecent();
-
         }
 
     });

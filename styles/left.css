@@ -275,6 +275,19 @@
     color:var(--text-light);
 }
 
+
+/**
+    - for small cover image inside sidebar cards
+        replaces icon when image is available
+*/
+
+.info-cover {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
 /**
     - RESPONSIVE DESIGN (LEFT COLUMN)
     - adapts sidebar navigation and content for all screen sizes

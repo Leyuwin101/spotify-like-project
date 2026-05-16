@@ -257,4 +257,231 @@
     border-radius:999px;
 }
 
-    
+/**
+    - EXTRA LARGE SCREENS (1440px and above)
+    - increase spacing for wide displays
+*/
+
+@media (min-width: 1440px) {
+
+    .right-sidebar{
+        gap:26px;
+    }
+
+    .right-box{
+        padding:26px;
+        border-radius:30px;
+    }
+
+    .right-title{
+        font-size:20px;
+    }
+
+    .song-box{
+        padding:16px;
+        gap:18px;
+    }
+
+    .song-name{
+        font-size:16px;
+    }
+
+    .song-time{
+        font-size:14px;
+    }
+}
+
+
+/**
+    - LAPTOP SCREENS (1024px - 1439px)
+    - default comfortable spacing adjustments
+*/
+
+@media (max-width: 1439px) and (min-width: 1024px) {
+
+    .right-sidebar{
+        gap:22px;
+    }
+
+    .right-box{
+        padding:22px;
+    }
+
+    .song-row{
+        max-height:340px;
+    }
+}
+
+
+/**
+    - TABLET LANDSCAPE (768px - 1023px)
+    - compact layout for medium screens
+*/
+
+@media (max-width: 1023px) and (min-width: 768px) {
+
+    .right-sidebar{
+        gap:18px;
+    }
+
+    .right-box{
+        padding:18px;
+        border-radius:22px;
+    }
+
+    .right-title{
+        font-size:17px;
+        margin-bottom:14px;
+    }
+
+    .song-box{
+        padding:12px;
+        gap:14px;
+    }
+
+    .song-number{
+        width:34px;
+        height:34px;
+        font-size:13px;
+    }
+
+    .song-name{
+        font-size:14px;
+    }
+
+    .song-time{
+        font-size:12px;
+    }
+
+    .song-row{
+        max-height:300px;
+    }
+}
+
+
+/**
+    - MOBILE LARGE (425px - 767px)
+    - stacked compact layout for phones
+*/
+
+@media (max-width: 767px) {
+
+    .right-sidebar{
+        gap:14px;
+    }
+
+    .right-column{
+        gap:14px;
+    }
+
+    .right-box{
+        padding:14px;
+        border-radius:20px;
+    }
+
+    .right-title{
+        font-size:16px;
+        margin-bottom:12px;
+    }
+
+    .song-box{
+        padding:10px;
+        gap:12px;
+        border-radius:14px;
+    }
+
+    .song-number{
+        width:30px;
+        height:30px;
+        font-size:12px;
+    }
+
+    .song-name{
+        font-size:13px;
+    }
+
+    .song-time{
+        font-size:11px;
+    }
+
+    .song-row{
+        max-height:260px;
+    }
+}
+
+
+/**
+    - SMALL MOBILE (375px - 424px)
+    - tighter spacing for small screens
+*/
+
+@media (max-width: 424px) {
+
+    .right-box{
+        padding:12px;
+        border-radius:18px;
+    }
+
+    .right-title{
+        font-size:15px;
+    }
+
+    .song-box{
+        padding:9px;
+        gap:10px;
+    }
+
+    .song-number{
+        width:28px;
+        height:28px;
+        font-size:11px;
+    }
+
+    .song-name{
+        font-size:12.5px;
+    }
+
+    .song-time{
+        font-size:10.5px;
+    }
+}
+
+
+/**
+    - EXTRA SMALL DEVICES (320px - 374px)
+    - ultra compact layout for very small phones
+*/
+
+@media (max-width: 374px) {
+
+    .right-sidebar{
+        gap:10px;
+    }
+
+    .right-box{
+        padding:10px;
+    }
+
+    .right-title{
+        font-size:14px;
+    }
+
+    .song-box{
+        padding:8px;
+        gap:8px;
+    }
+
+    .song-number{
+        width:26px;
+        height:26px;
+        font-size:10px;
+    }
+
+    .song-name{
+        font-size:12px;
+    }
+
+    .song-time{
+        font-size:10px;
+    }
+}

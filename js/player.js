@@ -283,6 +283,110 @@ progressBar.addEventListener("click", (e) => {
 
 
 /**
+ * VOLUME SLIDER
+ * 
+ * Updates audio volume in real time
+ * based on slider value
+ * 
+ * HTML range is 0 - 100
+ * audio volume uses 0 - 1
+ */
+volumeSlider.addEventListener("input", () => {
+
+    audio.volume = volumeSlider.value / 100;
+
+    /**
+     * VOLUME ICON STATES
+     * 
+     * Changes icon dynamically
+     * depending on current volume level
+     */
+
+    if(audio.volume === 0){
+
+        volumeBtn.classList.remove(
+            "fa-volume-high",
+            "fa-volume-low"
+        );
+
+        volumeBtn.classList.add(
+            "fa-volume-xmark"
+        );
+
+    }
+
+    else if(audio.volume < 0.5){
+
+        volumeBtn.classList.remove(
+            "fa-volume-high",
+            "fa-volume-xmark"
+        );
+
+        volumeBtn.classList.add(
+            "fa-volume-low"
+        );
+
+    }
+
+    else{
+
+        volumeBtn.classList.remove(
+            "fa-volume-low",
+            "fa-volume-xmark"
+        );
+
+        volumeBtn.classList.add(
+            "fa-volume-high"
+        );
+
+    }
+
+});
+
+
+/**
+ * VOLUME BUTTON
+ * 
+ * Toggles mute and unmute
+ * when volume icon is clicked
+ */
+volumeBtn.addEventListener("click", () => {
+
+    if(audio.volume > 0){
+
+        audio.volume = 0;
+        volumeSlider.value = 0;
+
+        volumeBtn.classList.remove(
+            "fa-volume-high",
+            "fa-volume-low"
+        );
+
+        volumeBtn.classList.add(
+            "fa-volume-xmark"
+        );
+
+    }
+
+    else{
+
+        audio.volume = 0.5;
+        volumeSlider.value = 50;
+
+        volumeBtn.classList.remove(
+            "fa-volume-xmark",
+            "fa-volume-low"
+        );
+
+        volumeBtn.classList.add(
+            "fa-volume-high"
+        );
+
+    }
+
+});
+
+/**
  * INITIAL LOAD
  * 
  * Loads first song when app starts

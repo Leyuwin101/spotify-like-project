@@ -139,29 +139,34 @@
 
 
 /**
-    - SONG NUMBER
+    - SONG IMAGE
     - fixed width and height
-        to create perfect circle
-    - display flex centers number
-    - border-radius 50% creates circle
-    - background uses primary variable
-    - color white improves readability
+        to create equal image size
+    - flex-shrink 0 prevents image shrinking
 */
 
-.song-number{
-    width:38px;
-    height:38px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:50%;
-    background:var(--primary);
-    color:#fff;
-    font-size:14px;
-    font-weight:600;
+.song-image{
+    width:52px;
+    height:52px;
     flex-shrink:0;
 }
 
+
+/**
+    - SONG COVER
+    - width and height 100%
+        fills the image container
+    - object-fit cover keeps image ratio
+        while filling the box properly
+    - border-radius softens image corners
+*/
+
+.song-cover{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:14px;
+}
 
 /**
     - SONG DETAILS
@@ -186,6 +191,7 @@
     font-weight:500;
     color:var(--text);
 }
+
 
 
 /**
@@ -320,10 +326,9 @@
         gap:14px;
     }
 
-    .song-number{
-        width:34px;
-        height:34px;
-        font-size:13px;
+    .song-image{
+        width:46px;
+        height:46px;
     }
 
     .song-name{
@@ -371,10 +376,10 @@
         border-radius:14px;
     }
 
-    .song-number{
-        width:30px;
-        height:30px;
-        font-size:12px;
+
+    .song-image{
+        width:42px;
+        height:42px;
     }
 
     .song-name{
@@ -412,10 +417,9 @@
         gap:10px;
     }
 
-    .song-number{
-        width:28px;
-        height:28px;
-        font-size:11px;
+    .song-image{
+        width:40px;
+        height:40px;
     }
 
     .song-name{
@@ -452,10 +456,9 @@
         gap:8px;
     }
 
-    .song-number{
-        width:26px;
-        height:26px;
-        font-size:10px;
+    .song-image{
+        width:36px;
+        height:36px;
     }
 
     .song-name{

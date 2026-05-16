@@ -35,6 +35,9 @@ const upNextList = document.querySelector(".up-next-list");
  * It receives:
  * - song object (data)
  * - index (position in playlist)
+ * 
+ * Instead of showing song number,
+ * it now shows the song cover image
  */
 function createSongItem(song, index){
 
@@ -44,8 +47,14 @@ function createSongItem(song, index){
 
     songBox.innerHTML = `
 
-        <div class="song-number">
-            ${index + 1}
+        <div class="song-image">
+
+            <img 
+                src="${song.cover}" 
+                alt="${song.title}" 
+                class="song-cover"
+            >
+
         </div>
 
         <div class="song-details">

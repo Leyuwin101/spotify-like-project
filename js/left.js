@@ -211,16 +211,25 @@ function renderAlbums(){
  * 
  * This groups all songs by artist name
  * and shows each unique artist only once
+ * 
+ * Clicking an artist:
+ * - filters all songs from same artist
+ * - re-renders left panel with artist songs
  */
 function renderArtists(){
 
     leftContent.innerHTML = "";
 
-    const artists = [...new Set(songs.map(song => song.artist))];
+    // get unique artist names only
+    const artists =
+    [...new Set(songs.map(song => song.artist))];
 
     artists.forEach((artist) => {
 
-        const firstSong = songs.find(song => song.artist === artist);
+        // get first song from artist
+        // used for artist preview cover
+        const firstSong =
+        songs.find(song => song.artist === artist);
 
         const box = createInfoBox(
             "fa-solid fa-user",
@@ -229,12 +238,28 @@ function renderArtists(){
             firstSong?.cover
         );
 
+        /**
+         * CLICK ARTIST
+         * 
+         * Filters songs that belong
+         * to the selected artist only
+         */
+        box.addEventListener("click", () => {
+
+            // get all songs from clicked artist
+            const artistSongs =
+            songs.filter(song => song.artist === artist);
+
+            // render filtered songs
+            renderSongs(artistSongs);
+
+        });
+
         leftContent.appendChild(box);
 
     });
 
 }
-
 
 /**
  * RENDER FAVORITES

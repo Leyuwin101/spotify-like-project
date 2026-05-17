@@ -159,7 +159,7 @@
         Changes color and moves up slightly
 */
 
-.nav li:hover{
+.nav li:hover:not(.active-nav){
     background:var(--primary);
     color:white;
     transform:translateY(-2px);
@@ -171,13 +171,13 @@
         highlights the selected navigation item
 */
 
-.active-nav{
-    background:rgba(122,66,244,0.18);
-    color:var(--primary);
-    border-radius:18px;
-    border:1px solid rgba(122,66,244,0.35);
+.nav li.active-nav{
+    background:var(--primary) !important;
+    color:#fff !important;
+    border:1px solid var(--primary) !important;
+    transform:translateY(-2px);
+    box-shadow:0 6px 14px rgba(122,66,244,0.35);
 }
-
 
 /**
     - LEFT CONTENT
@@ -192,6 +192,35 @@
     overflow-y:auto;
     max-height:600px;
     padding-right:4px;
+}
+
+/**
+ * SCROLLBAR
+ * 
+ * Customizes the vertical scrollbar
+ * inside the left content panel
+ */
+
+/* scrollbar width */
+.left-content::-webkit-scrollbar{
+    width:8px;
+}
+
+/* scrollbar background */
+.left-content::-webkit-scrollbar-track{
+    background:#1e1e1e;
+    border-radius:10px;
+}
+
+/* draggable scrollbar */
+.left-content::-webkit-scrollbar-thumb{
+    background:#4f46e5;
+    border-radius:10px;
+}
+
+/* hover effect */
+.left-content::-webkit-scrollbar-thumb:hover{
+    background:#6366f1;
 }
 
 

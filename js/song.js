@@ -50,7 +50,7 @@ export const songs = [
         artist: "Mr.Kitty",
         album: "Time",
         src: "src/music/another.mp3",
-        cover: "src/image/afterdark.jpg",
+        cover: "src/image/Aboutyou.jpg",
         favorite: false
     }
 

@@ -12,7 +12,7 @@
  */
 
 import { songs } from "./song.js";
-import { loadSong, playSong } from "./player.js";
+import {loadSong,playSong,setCurrentSong} from "./player.js";
 
 
 /* NAV ITEMS
@@ -155,16 +155,25 @@ searchInput.addEventListener("input", () => {
  * 
  * This groups all songs by album name
  * and displays each unique album only once
+ * 
+ * Clicking an album:
+ * - filters all songs with same album
+ * - re-renders left panel with album songs
  */
 function renderAlbums(){
 
     leftContent.innerHTML = "";
 
-    const albums = [...new Set(songs.map(song => song.album))];
+    // get unique album names only
+    const albums =
+    [...new Set(songs.map(song => song.album))];
 
     albums.forEach((album) => {
 
-        const firstSong = songs.find(song => song.album === album);
+        // get first song from album
+        // used for album cover preview
+        const firstSong =
+        songs.find(song => song.album === album);
 
         const box = createInfoBox(
             "fa-solid fa-compact-disc",
@@ -172,6 +181,23 @@ function renderAlbums(){
             "Album",
             firstSong?.cover
         );
+
+        /**
+         * CLICK ALBUM
+         * 
+         * Filters songs that belong
+         * to the selected album only
+         */
+        box.addEventListener("click", () => {
+
+            // get all songs from clicked album
+            const albumSongs =
+            songs.filter(song => song.album === album);
+
+            // render filtered songs
+            renderSongs(albumSongs);
+
+        });
 
         leftContent.appendChild(box);
 
@@ -214,14 +240,19 @@ function renderArtists(){
  * RENDER FAVORITES
  * 
  * This filters songs that are marked as favorite
- * and displays only those songs
+ * and displays all liked songs
+ * 
+ * 
  */
-function renderFavorites(){
+export function renderFavorites(){
 
     leftContent.innerHTML = "";
 
-    const favoriteSongs = songs.filter(song => song.favorite);
+    // get all favorited songs
+    const favoriteSongs =
+    songs.filter(song => song.favorite);
 
+    // render all favorite songs
     favoriteSongs.forEach((song) => {
 
         const box = createInfoBox(
@@ -231,9 +262,19 @@ function renderFavorites(){
             song.cover
         );
 
+        /**
+         * CLICK FAVORITE SONG
+         * 
+         * Loads selected favorite song
+         * and starts playback
+         */
         box.addEventListener("click", () => {
+
+            setCurrentSong(song);
+
             loadSong(song);
             playSong();
+
         });
 
         leftContent.appendChild(box);
@@ -241,7 +282,6 @@ function renderFavorites(){
     });
 
 }
-
 
 /**
  * RENDER RECENT

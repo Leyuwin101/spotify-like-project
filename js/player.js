@@ -14,6 +14,7 @@
 
 import { songs } from "./song.js";
 import { renderSidebar } from "./sidebar.js";
+import { renderFavorites } from "./left.js";
 
 
 /* SONG INDEX
@@ -62,10 +63,18 @@ const favorite = document.querySelector(".heart");
  */
 favorite.addEventListener("click", () => {
 
-    const song = songs[currentSong];
+    const song = songs.find((item) => {
+
+    return audio.src.includes(item.src);
+
+    });
+
+    // stop if song not found
+    if(!song) return;
 
     // toggle favorite state
     song.favorite = !song.favorite;
+
 
     // update UI icon state
     if (song.favorite) {
@@ -78,6 +87,7 @@ favorite.addEventListener("click", () => {
 
     // refresh sidebar so Favorites updates
     renderSidebar();
+    renderFavorites();
 });
 
 /**
@@ -131,6 +141,23 @@ export function loadSong(song){
 
     renderSidebar();
 }
+
+
+/**
+ * SET CURRENT SONG
+ * 
+ * Updates the active song index
+ * based on selected song object
+ */
+export function setCurrentSong(song){
+
+    currentSong =
+    songs.findIndex(
+        item => item.title === song.title
+    );
+
+}
+
 
 
 /**
